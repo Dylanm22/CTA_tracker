@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_03_25_232226) do
+ActiveRecord::Schema[7.0].define(version: 2024_03_25_234956) do
+  create_table "notification_times", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.time "time"
+    t.string "recurrence"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_notification_times_on_user_id"
+  end
+
   create_table "stations", force: :cascade do |t|
     t.string "name"
     t.integer "run_number"
@@ -35,4 +44,5 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_25_232226) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "notification_times", "users"
 end
