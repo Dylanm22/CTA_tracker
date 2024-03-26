@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :favorites
   resources :notification_times
   resources :stations
   devise_for :users
