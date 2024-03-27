@@ -4,6 +4,18 @@ class StationsController < ApplicationController
   # GET /stations or /stations.json
   def index
     @stations = Station.all
+    api_key = ENV["CTA_KEY"].strip
+    @all_maps = []
+    num = 41500
+    1.times.each do 
+      @first_resp = HTTP.get("http://lapi.transitchicago.com/api/1.0/ttarrivals.aspx?key=#{api_key}&mapid=#{num}&outputType=JSON")
+      num = num + 10 
+      first_raw = @first_resp.to_s
+      first_parsed = JSON.parse(first_raw)
+  
+      response = first_parsed
+      @all_maps.append(response)
+   end
   end
 
   # GET /stations/1 or /stations/1.json

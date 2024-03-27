@@ -2,6 +2,23 @@
 
 <h1>Stations</h1>
 
+<% @all_maps[0].dig("ctatt").dig('eta').each do |eta| %>
+
+<ul>
+ <li>
+ <%= eta %>
+ </li>
+</ul>
+
+<ul>
+ <li>
+ <%= "Current Station: #{eta.dig("staNm")}, Line: #{eta.dig("rt")}, Destination: #{eta.dig("stpDe")}, Run number: #{eta.dig("rn")}, arrival time: #{eta.dig("arrT")}" %>
+ </li>
+</ul>
+<hr>
+<% end %>
+
+
 <div id="stations">
   <% @stations.each do |station| %>
     <%= render station %>
