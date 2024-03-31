@@ -1,3 +1,4 @@
+require 'httparty'
 class StationsController < ApplicationController
   before_action :set_station, only: %i[ show edit update destroy ]
 
@@ -5,17 +6,35 @@ class StationsController < ApplicationController
   def index
     @stations = Station.all
     api_key = ENV["CTA_KEY"].strip
-    @all_maps = []
-    num = 41500
-    1.times.each do 
-      @first_resp = HTTP.get("http://lapi.transitchicago.com/api/1.0/ttarrivals.aspx?key=#{api_key}&mapid=#{num}&outputType=JSON")
-      num = num + 10 
-      first_raw = @first_resp.to_s
-      first_parsed = JSON.parse(first_raw)
-  
-      response = first_parsed
-      @all_maps.append(response)
+     num = 41500
+     response = HTTParty.get("http://lapi.transitchicago.com/api/1.0/ttarrivals.aspx?key=#{api_key}&mapid=#{num}&outputType=JSON")
+     data = JSON.parse(response.body)['ctatt']['eta']
+ 
+     data.each do |arrival|
+       CtaArrival.create(
+         station_name: arrival['staNm'],
+         run_number: arrival['rn'],
+         line: arrival['rt'],
+         destination: arrival['destNm'],
+         eta: Time.at(arrival['arrT'].to_i)
+       )
+     end
+ 
+     @cta_arrivals = CtaArrival.all
    end
+    # @stations = Station.all
+    # api_key = ENV["CTA_KEY"].strip
+    # @all_maps = []
+    # num = 41500
+    # 1.times.each do 
+    #   @first_resp = HTTP.get("http://lapi.transitchicago.com/api/1.0/ttarrivals.aspx?key=#{api_key}&mapid=#{num}&outputType=JSON")
+    #   num = num + 10 
+    #   first_raw = @first_resp.to_s
+    #   first_parsed = JSON.parse(first_raw)
+  
+    #   response = first_parsed
+    #   @all_maps.append(response)
+  #  end
   end
 
   # GET /stations/1 or /stations/1.json
@@ -79,4 +98,4 @@ class StationsController < ApplicationController
     def station_params
       params.require(:station).permit(:name, :run_number, :line, :destination, :eta)
     end
-end
+# end
