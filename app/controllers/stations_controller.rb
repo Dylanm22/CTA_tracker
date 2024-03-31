@@ -9,18 +9,6 @@ class StationsController < ApplicationController
      num = 41500
      response = HTTParty.get("http://lapi.transitchicago.com/api/1.0/ttarrivals.aspx?key=#{api_key}&mapid=#{num}&outputType=JSON")
      data = JSON.parse(response.body)['ctatt']['eta']
- 
-     data.each do |arrival|
-       CtaArrival.create(
-         station_name: arrival['staNm'],
-         run_number: arrival['rn'],
-         line: arrival['rt'],
-         destination: arrival['destNm'],
-         eta: Time.at(arrival['arrT'].to_i)
-       )
-     end
- 
-     @cta_arrivals = CtaArrival.all
    end
     # @stations = Station.all
     # api_key = ENV["CTA_KEY"].strip
