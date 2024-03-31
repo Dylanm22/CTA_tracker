@@ -10,5 +10,53 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 0) do
+ActiveRecord::Schema[7.0].define(version: 2024_03_25_235948) do
+  create_table "favorites", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "station_id", null: false
+    t.integer "notification_time_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["notification_time_id"], name: "index_favorites_on_notification_time_id"
+    t.index ["station_id"], name: "index_favorites_on_station_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
+  create_table "notification_times", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.time "time"
+    t.string "recurrence"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_notification_times_on_user_id"
+  end
+
+  create_table "stations", force: :cascade do |t|
+    t.string "name"
+    t.integer "run_number"
+    t.string "line"
+    t.string "destination"
+    t.string "eta"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.string "username"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["username"], name: "index_users_on_username", unique: true
+  end
+
+  add_foreign_key "favorites", "notification_times"
+  add_foreign_key "favorites", "stations"
+  add_foreign_key "favorites", "users"
+  add_foreign_key "notification_times", "users"
 end

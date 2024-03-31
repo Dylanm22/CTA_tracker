@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Notification times</h1>
+
+<div id="notification_times">
+  <% @notification_times.each do |notification_time| %>
+    <%= render notification_time %>
+    <p>
+      <%= link_to "Show this notification time", notification_time %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New notification time", new_notification_time_path %>
