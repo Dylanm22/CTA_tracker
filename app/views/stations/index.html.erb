@@ -4,15 +4,23 @@
 <table>
   <thead>
     <tr>
-      <th>Station Name</th>
-      <th>Run Number</th>
+      <th>Station</th>
+      <th>Run</th>
       <th>Line</th>
       <th>Destination</th>
       <th>ETA</th>
     </tr>
   </thead>
   <tbody>
-  
+  <% @stations.each do |station| %>
+      <tr>
+        <td><%= station.name %></td>
+        <td><%= station.run_number %></td>
+        <td><%= station.line %></td>
+        <td><%= station.destination %></td>
+        <td><%= station.eta %></td>
+      </tr>
+    <% end %>
   </tbody>
 </table>
 
