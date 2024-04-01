@@ -4,5 +4,28 @@
     <%= station.name %>
   </p>
 
+<h1>Arrivals for <%= station.name %></h1>
+<table>
+  <thead>
+    <tr>
+    <th>Name</th>
+    <th>Run Number</th>
+    <th>Line</th>
+    <th>Destination</th>
+    <th>ETA</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @arrivals.each do |arrival| %>
+  <tr>
+  <td><%= arrival[:name] %></td>
+  <td><%= arrival[:run_number] %></td>
+  <td><%= arrival[:line] %></td>
+  <td><%= arrival[:destination] %></td>
+   <td><%= arrival[:eta] %></td>
+      </tr>
+    <% end %>
+</tbody>
+</table>
   
 </div>
