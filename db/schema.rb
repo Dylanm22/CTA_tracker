@@ -10,25 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_03_25_235948) do
+ActiveRecord::Schema[7.0].define(version: 2024_04_01_154610) do
   create_table "favorites", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "station_id", null: false
-    t.integer "notification_time_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["notification_time_id"], name: "index_favorites_on_notification_time_id"
+    t.time "time"
+    t.string "recurrence"
     t.index ["station_id"], name: "index_favorites_on_station_id"
     t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
   create_table "notification_times", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.time "time"
-    t.string "recurrence"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_notification_times_on_user_id"
+    t.integer "favorites_id", null: false
+    t.index ["favorites_id"], name: "index_notification_times_on_favorites_id"
   end
 
   create_table "stations", force: :cascade do |t|
@@ -55,8 +53,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_25_235948) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
-  add_foreign_key "favorites", "notification_times"
   add_foreign_key "favorites", "stations"
   add_foreign_key "favorites", "users"
-  add_foreign_key "notification_times", "users"
+  add_foreign_key "notification_times", "favorites", column: "favorites_id"
 end

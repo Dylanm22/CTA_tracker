@@ -12,4 +12,5 @@
 #  updated_at  :datetime         not null
 #
 class Station < ApplicationRecord
+has_many :favorites 
 end
