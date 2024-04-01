@@ -3,6 +3,7 @@
 # Table name: favorites
 #
 #  id         :integer          not null, primary key
+#  recurrence :string
 #  time       :time
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
