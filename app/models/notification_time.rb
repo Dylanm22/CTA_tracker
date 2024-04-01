@@ -3,8 +3,6 @@
 # Table name: notification_times
 #
 #  id         :integer          not null, primary key
-#  recurrence :string
-#  time       :time
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  user_id    :integer          not null
