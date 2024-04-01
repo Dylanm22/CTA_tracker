@@ -5,14 +5,15 @@ class StationsController < ApplicationController
   # GET /stations or /stations.json
   def index
     @stations = Station.all
-    api_key = ENV["CTA_KEY"].strip
-     num = 41500
-     response = HTTParty.get("http://lapi.transitchicago.com/api/1.0/ttarrivals.aspx?key=#{api_key}&mapid=#{num}&outputType=JSON")
-     data = JSON.parse(response.body)['ctatt']['eta']
   end
 
   # GET /stations/1 or /stations/1.json
   def show
+    @stations = Station.all
+    api_key = ENV["CTA_KEY"].strip
+     num = 41500
+     response = HTTParty.get("http://lapi.transitchicago.com/api/1.0/ttarrivals.aspx?key=#{api_key}&mapid=#{num}&outputType=JSON")
+     data = JSON.parse(response.body)['ctatt']['eta']
   end
 
   # GET /stations/new
