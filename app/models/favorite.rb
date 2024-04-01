@@ -22,7 +22,6 @@
 #
 class Favorite < ApplicationRecord
   belongs_to :user
-  has_many :notification_time
-  has_many :station
+  belongs_to :station
 
 end
