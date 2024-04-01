@@ -4,7 +4,7 @@
 
 <% @stations.each do |station| %>
       
-        <h2><%= station.name %></h2>
+        <h2><%= link_to station.name, station_path(station.id) %></h2>
       
  <% end %>
   <div>
