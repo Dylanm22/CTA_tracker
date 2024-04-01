@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_04_01_152703) do
+ActiveRecord::Schema[7.0].define(version: 2024_04_01_153247) do
   create_table "favorites", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "station_id", null: false
@@ -26,6 +26,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_01_152703) do
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "favorites_id", null: false
+    t.index ["favorites_id"], name: "index_notification_times_on_favorites_id"
     t.index ["user_id"], name: "index_notification_times_on_user_id"
   end
 
@@ -56,5 +58,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_01_152703) do
   add_foreign_key "favorites", "notification_times"
   add_foreign_key "favorites", "stations"
   add_foreign_key "favorites", "users"
+  add_foreign_key "notification_times", "favorites", column: "favorites_id"
   add_foreign_key "notification_times", "users"
 end
