@@ -4,6 +4,10 @@ task({ :sample_data => :environment }) do
   # User.create(email: 'bob@example.com', password: 'password', username: 'Bob')
   # User.create(email: 'cameron@example.com', password: 'password', username: 'Cameron')
 
-  Station.create(name:'Montrose')
+  # Station.create(name:'Montrose')
+  user = User.first
+  station = Station.first
+
+  NotificationTime.create(user: user, station: station, recurrence: 'everyday')
 end
  
