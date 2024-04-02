@@ -20,6 +20,12 @@
             <li class="nav-item">
               <%= link_to "Saved Stations", favorites_path, class: "nav-link" %>
             </li>
+          <li class="nav-item">
+              <%= link_to "new notification time", new_notification_time_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "noti times", notification_times_path, class: "nav-link" %>
+            </li>
           <% else %>
             <li class="nav-item">
               <%= link_to "Sign in", new_user_session_path, class: "nav-link" %>
