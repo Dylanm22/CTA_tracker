@@ -9,6 +9,8 @@ class StationsController < ApplicationController
 
   # GET /stations/1 or /stations/1.json
   def show
+    @station = Station.find(params[:id])
+    @favorite = Favorite.new
     @stations = Station.all
     api_key = ENV["CTA_KEY"].strip
      num = 41500
