@@ -26,7 +26,6 @@ class StationsController < ApplicationController
        })
     end
   end
-
   # GET /stations/new
   def new
     @station = Station.new
