@@ -22,10 +22,6 @@
     <%= form.time_field :time %>
   </div>
 
-  <!--<div>-->
-    <%#= form.label :recurrence, style: "display: block" %>
-    <%#= form.text_field :recurrence %>
-<!--  </div>-->
  <div>
     <%= form.label :recurrence, style: "display: block" %>
     <%= form.select :recurrence, [['Once', 'once'],['Weekdays', 'weekdays'], ['Weekends', 'weekends'], ['Mondays', 'mondays'], ['Tuesdays', 'tuesdays'], ['Wednesdays', 'wednesdays'], ['Thursdays', 'thursdays'], ['Fridays', 'fridays'], ['Saturdays', 'saturdays'], ['Sundays', 'sundays'] ], {}, { prompt: 'Select recurrence' } %>
