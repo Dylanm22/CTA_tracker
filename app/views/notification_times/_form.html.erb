@@ -11,11 +11,6 @@
     </div>
   <% end %>
 
-  <!--<div>-->
-    <%#= form.label :user_id, style: "display: block" %>
-    <%#= form.text_field :user_id %>
-<!--  </div>-->
-
 <div>
     <%= form.label :user_id, style: "display: block" %>
     <%= form.hidden_field :user_id, value: current_user.id %>
@@ -27,16 +22,14 @@
     <%= form.time_field :time %>
   </div>
 
-  <div>
-    <%= form.label :recurrence, style: "display: block" %>
-    <%= form.text_field :recurrence %>
-  </div>
-<!--
-  <div>
-    <%#= form.label :station_id, style: "display: block" %>-->
-    <%#= form.text_field :station_id %>
+  <!--<div>-->
+    <%#= form.label :recurrence, style: "display: block" %>
+    <%#= form.text_field :recurrence %>
 <!--  </div>-->
-  
+ <div>
+    <%= form.label :recurrence, style: "display: block" %>
+    <%= form.select :recurrence, [['Once', 'once'],['Weekdays', 'weekdays'], ['Weekends', 'weekends'], ['Mondays', 'mondays'], ['Tuesdays', 'tuesdays'], ['Wednesdays', 'wednesdays'], ['Thursdays', 'thursdays'], ['Fridays', 'fridays'], ['Saturdays', 'saturdays'], ['Sundays', 'sundays'] ], {}, { prompt: 'Select recurrence' } %>
+  </div>
   <div>
   <%= form.label :station_id, style: "display: block" %>
   <%= form.collection_select :station_id, Station.all, :id, :name %>
