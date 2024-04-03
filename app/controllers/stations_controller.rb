@@ -12,7 +12,7 @@ class StationsController < ApplicationController
     @favorite = Favorite.new
     @stations = Station.all
     api_key = ENV["CTA_KEY"].strip
-     num = 41500
+     num = @station.map
      response = HTTParty.get("http://lapi.transitchicago.com/api/1.0/ttarrivals.aspx?key=#{api_key}&mapid=#{num}&outputType=JSON")
      stops = JSON.parse(response.body)['ctatt']['eta']
 
