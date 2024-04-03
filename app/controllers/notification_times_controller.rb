@@ -65,6 +65,6 @@ class NotificationTimesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def notification_time_params
-      params.require(:notification_time).permit(:user_id_id, :time, :recurrence)
+      params.require(:notification_time).permit(:user_id, :time, :recurrence, :station_id)
     end
 end

@@ -12,8 +12,8 @@
   <% end %>
 
   <div>
-    <%= form.label :user_id_id, style: "display: block" %>
-    <%= form.text_field :user_id_id %>
+    <%= form.label :user_id, style: "display: block" %>
+    <%= form.text_field :user_id %>
   </div>
 
   <div>
@@ -25,7 +25,16 @@
     <%= form.label :recurrence, style: "display: block" %>
     <%= form.text_field :recurrence %>
   </div>
-
+<!--
+  <div>
+    <%#= form.label :station_id, style: "display: block" %>-->
+    <%#= form.text_field :station_id %>
+<!--  </div>-->
+  
+  <div>
+  <%= form.label :station_id, style: "display: block" %>
+  <%= form.collection_select :station_id, Station.all, :id, :name %>
+</div>
   <div>
     <%= form.submit %>
   </div>
