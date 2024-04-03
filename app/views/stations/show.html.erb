@@ -18,7 +18,7 @@
       </ul>
     </div>
   <% end %>
-
+<% if user_signed_in? %>
   <div>
     <% form.label :user_id, style: "display: block" %>
     <%= form.hidden_field :user_id, value: current_user.id %>
@@ -33,4 +33,5 @@
   <div>
     <%= form.submit %>
   </div>
+<% end %>
 <% end %>
