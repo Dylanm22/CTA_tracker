@@ -12,7 +12,7 @@ class StationsController < ApplicationController
     @favorite = Favorite.new
     @stations = Station.all
     api_key = ENV["CTA_KEY"].strip
-     num = 41500
+     num = @station.map
      response = HTTParty.get("http://lapi.transitchicago.com/api/1.0/ttarrivals.aspx?key=#{api_key}&mapid=#{num}&outputType=JSON")
      stops = JSON.parse(response.body)['ctatt']['eta']
 
@@ -82,6 +82,6 @@ class StationsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def station_params
-      params.require(:station).permit(:name, :run_number, :line, :destination, :eta)
+      params.require(:station).permit(:name, :map)
     end
 end
