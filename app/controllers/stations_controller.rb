@@ -82,6 +82,6 @@ class StationsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def station_params
-      params.require(:station).permit(:name, :run_number, :line, :destination, :eta)
+      params.require(:station).permit(:name, :map)
     end
 end
