@@ -31,7 +31,7 @@ class StationsController < ApplicationController
   def new
     @station = Station.new
   end
-
+  
   # GET /stations/1/edit
   def edit
   end
