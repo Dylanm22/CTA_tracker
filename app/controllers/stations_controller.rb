@@ -8,6 +8,7 @@ class StationsController < ApplicationController
   end
   # GET /stations/1 or /stations/1.json
   def show
+    @is_show_page = true
     @station = Station.find(params[:id])
     @favorite = Favorite.new
     @stations = Station.all
