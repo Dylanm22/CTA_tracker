@@ -19,5 +19,5 @@
 
 # Learn more: http://github.com/javan/whenever
 every 1.minute do
-  runner "Station.all.each { |station| station.touch }"
+  runner "UpdateApiDataJob.perform_now"
 end
