@@ -6,7 +6,6 @@ class StationsController < ApplicationController
   def index
     @stations = Station.all
   end
-
   # GET /stations/1 or /stations/1.json
   def show
     @station = Station.find(params[:id])
