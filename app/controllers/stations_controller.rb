@@ -27,6 +27,10 @@ class StationsController < ApplicationController
          eta: stop['arrT']
        })
     end
+    respond_to do |format|
+      format.turbo_stream { render turbo_stream: turbo_stream.replace('content-to-update', partial: 'stations/show_content', locals: { station: @station }) }
+      format.html # Render the HTML format as usual
+    end
   end
   # GET /stations/new
   def new
