@@ -8,6 +8,7 @@ class StationsController < ApplicationController
   end
   # GET /stations/1 or /stations/1.json
   def show
+    @is_show_page = true
     @station = Station.find(params[:id])
     @favorite = Favorite.new
     @stations = Station.all
@@ -25,6 +26,10 @@ class StationsController < ApplicationController
          destination: stop['destNm'],
          eta: stop['arrT']
        })
+    end
+    respond_to do |format|
+      format.turbo_stream { render turbo_stream: turbo_stream.replace('content-to-update', partial: 'stations/show_content', locals: { station: @station }) }
+      format.html # Render the HTML format as usual
     end
   end
   # GET /stations/new
