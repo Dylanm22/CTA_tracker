@@ -1,12 +1,12 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Stations</h1>
-
-<% @stations.each do |station| %>
-      
-        <h2><%= link_to station.name, station_path(station.id) %></h2>
-      
- <% end %>
-  <div>
+<div class="container mt-3">
+  <h1>Stations</h1>
+  <div class="list-group">
+    <% @stations.each do |station| %>
+      <%= link_to station.name, station_path(station.id), class: 'list-group-item list-group-item-action' %>
+    <% end %>
   </div>
-<%= link_to "New station", new_station_path %>
+</div>
+
+<%= link_to "New station", new_station_path, class: 'btn btn-success mt-3' %>
