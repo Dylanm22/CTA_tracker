@@ -4,6 +4,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby "3.2.1"
 gem 'httparty'
 
+gem 'turbo-rails'
+
 gem 'whenever', require: false
 
 gem "devise"   
@@ -88,6 +90,7 @@ gem "sqlite3", "~> 1.4"
 gem "table_print"
 
 group :development do
+  gem "letter_opener"
   gem "annotate"
   gem "better_errors"
   gem "binding_of_caller"

@@ -1,14 +1,16 @@
-<head>
-  <%# if params[:controller] == 'stations' && params[:action] == 'show' && @is_show_page %>
-<!--    <meta http-equiv="refresh" content="60">-->
-  <%# else %>
-<!--  -->
-  <%# end %>
-</head>
+  
+   
+    <head>
+    <% if params[:controller] == 'stations' && params[:action] == 'show' && @is_show_page %>
+    <META http-equiv="refresh" content="30;URL=http://0.0.0.0:3000/stations/1" id="meta_refresh">
+     <% end %>
+    </head>
+  
+
 <p style="color: green"><%= notice %></p>
-
-<%= render @station %>
-
+<div id="arrivalTimes">
+  <%= render @station %>
+</div>
 <div>
   <%= link_to "Back to stations", stations_path %>
 </div>
@@ -25,20 +27,30 @@
       </ul>
     </div>
   <% end %>
-<% if user_signed_in? %>
-  <div>
-    <% form.label :user_id, style: "display: block" %>
-    <%= form.hidden_field :user_id, value: current_user.id %>
-  </div>
+  <% if user_signed_in? %>
+    <div>
+      <% form.label :user_id, style: "display: block" %>
+      <%= form.hidden_field :user_id, value: current_user.id %>
+    </div>
 
-  <div>
-    <% form.label :station_id, style: "display: block" %>
-    <%= form.hidden_field :station_id, value: @station.id %>
-    <% @station.name %>
-  </div>
+    <div>
+      <% form.label :station_id, style: "display: block" %>
+      <%= form.hidden_field :station_id, value: @station.id %>
+      <% @station.name %>
+    </div>
 
-  <div>
-    <%= form.submit %>
-  </div>
+    <div>
+      <%= form.submit %>
+    </div>
+  <% end %>
 <% end %>
-<% end %>
+
+<script>
+    // Check if the current page URL matches the target URL
+    if (window.location.href === 'http://0.0.0.0:3000/stations/1') {
+        // Refresh the page after 6 seconds
+        setTimeout(function(){
+            location.reload();
+        }, 6000);
+    }
+</script>
