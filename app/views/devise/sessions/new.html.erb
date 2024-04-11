@@ -1,0 +1,45 @@
+
+
+<div class="container">
+  <div class="row justify-content-center mt-5">
+    <div class="col-md-6">
+      <div class="card devise-col">
+        <div class="card-header">Login</div>
+        <div class="card-body">
+          <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "form-horizontal" }) do |f| %>
+            <div class="form-group">
+              <%= f.label :email, class: "control-label col-sm-4" %>
+              <div class="col-sm-8">
+                <%= f.email_field :email, class: "form-control", required: false, autofocus: true, autocomplete: "email" %>
+              </div>
+            </div>
+            <div class="form-group">
+              <%= f.label :password, class: "control-label col-sm-4" %>
+              <div class="col-sm-8">
+                <%= f.password_field :password, class: "form-control", required: false, autocomplete: "current-password" %>
+              </div>
+            </div>
+            <% if devise_mapping.rememberable? %>
+              <div class="form-group">
+                <div class="col-sm-offset-4 col-sm-8">
+                  <div class="checkbox">
+                    <label>
+                      <%= f.check_box :remember_me %> Remember me
+                    </label>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+            <div class="form-group">
+              <div class="col-sm-offset-4 col-sm-8">
+                <%= f.button :submit, "Log in", class: "btn btn-primary" %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= render "users/shared/links" %>

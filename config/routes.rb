@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'cover/show'
   resources :favorites
   resources :notification_times
   resources :stations

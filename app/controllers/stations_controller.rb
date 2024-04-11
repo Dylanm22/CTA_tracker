@@ -5,6 +5,11 @@ class StationsController < ApplicationController
   # GET /stations or /stations.json
   def index
     @stations = Station.all
+    @stations = if params[:search]
+      Station.where('name LIKE ?', "%#{params[:search]}%")
+    else
+      Station.all
+    end
   end
   # GET /stations/1 or /stations/1.json
   def show

@@ -2,7 +2,7 @@
    
     <head>
     <% if params[:controller] == 'stations' && params[:action] == 'show' && @is_show_page %>
-    <META http-equiv="refresh" content="30;URL=http://0.0.0.0:3000/stations/1" id="meta_refresh">
+    <!--<META http-equiv="refresh" content="60;URL=http://0.0.0.0:3000/stations/1" id="meta_refresh">-->
      <% end %>
     </head>
   
@@ -40,8 +40,11 @@
     </div>
 
     <div>
-      <%= form.submit %>
+          <%= form.button type: "submit", class: "btn btn-col btn-light create-star-button" do %>
+      <i class="far fa-star"></i> <!-- Empty star icon -->
+    <% end %>
     </div>
+  
   <% end %>
 <% end %>
 
@@ -51,6 +54,6 @@
         // Refresh the page after 6 seconds
         setTimeout(function(){
             location.reload();
-        }, 6000);
+        }, 30000);
     }
 </script>
