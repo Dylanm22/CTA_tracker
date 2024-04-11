@@ -1,18 +1,15 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Favorites</h1>
+<h1 class="text-center">Favorites</h1>
 
-<div id="favorites">
-  <% @favorites.each do |favorite| %>
-    <%= render favorite %>
-    <p>
-      <%= link_to "Show this favorite", favorite %>
-   </p>
-  <p>
-      <%= link_to "create notification", new_notification_time_path %>
-   </p>
-  <% end %>
-  
+<div class="container">
+  <div class="row">
+    <% @favorites.each do |favorite| %>
+      <div class="col-md-4 mb-4">
+        <%= render "notification_times/notification_time", favorite: favorite %>
+      </div>
+    <% end %>
+  </div>
 </div>
 
 <%= link_to "New favorite", new_favorite_path %>

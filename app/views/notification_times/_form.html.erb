@@ -1,36 +1,45 @@
-<%= form_with(model: notification_time) do |form| %>
-  <% if notification_time.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(notification_time.errors.count, "error") %> prohibited this notification_time from being saved:</h2>
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <%= form_with(model: notification_time) do |form| %>
+            <% if notification_time.errors.any? %>
+              <div class="alert alert-danger">
+                <h2><%= pluralize(notification_time.errors.count, "error") %> prohibited this notification_time from being saved:</h2>
 
-      <ul>
-        <% notification_time.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+                <ul>
+                  <% notification_time.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
+
+            <!-- Hidden user ID field -->
+            <%= form.hidden_field :user_id, value: current_user.id %>
+
+            <div class="mb-3">
+              <%= form.label :time, "Time", class: "form-label" %>
+              <%= form.time_field :time, class: "form-control" %>
+            </div>
+
+            <div class="mb-3">
+              <%= form.select :recurrence, [['Once', 'once'],['Weekdays', 'weekdays'], ['Weekends', 'weekends'], ['Mondays', 'mondays'], ['Tuesdays', 'tuesdays'], ['Wednesdays', 'wednesdays'], ['Thursdays', 'thursdays'], ['Fridays', 'fridays'], ['Saturdays', 'saturdays'], ['Sundays', 'sundays'] ], {}, { prompt: 'Select recurrence' } %>
+              
+            </div>
+
+            <div class="mb-3">
+              <%= form.label :station_id, "Station", class: "form-label" %>
+              <%= form.collection_select :station_id, Station.all, :id, :name, { prompt: 'Select station' }, class: "form-select" %>
+            </div>
+
+            <div>
+              <%= form.submit "Save", class: "btn btn-primary" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
     </div>
-  <% end %>
-
-<div>
-    <%= form.label :user_id, style: "display: block" %>
-    <%= form.hidden_field :user_id, value: current_user.id %>
-    <%= current_user.id %> <!-- Display the current user's name -->
   </div>
-  
-  <div>
-    <%= form.label :time, style: "display: block" %>
-    <%= form.time_field :time %>
-  </div>
-
- <div>
-    <%= form.label :recurrence, style: "display: block" %>
-    <%= form.select :recurrence, [['Once', 'once'],['Weekdays', 'weekdays'], ['Weekends', 'weekends'], ['Mondays', 'mondays'], ['Tuesdays', 'tuesdays'], ['Wednesdays', 'wednesdays'], ['Thursdays', 'thursdays'], ['Fridays', 'fridays'], ['Saturdays', 'saturdays'], ['Sundays', 'sundays'] ], {}, { prompt: 'Select recurrence' } %>
-  </div>
-  <div>
-  <%= form.label :station_id, style: "display: block" %>
-  <%= form.collection_select :station_id, Station.all, :id, :name %>
 </div>
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>

@@ -1,6 +1,6 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @notification_time %>
+<%= render @notification_time, favorite: Favorite.find_by(station_id: @notification_time.station_id, user_id: @notification_time.user.id)%>
 
 <div>
   <%= link_to "Edit this notification time", edit_notification_time_path(@notification_time) %> |

@@ -11,7 +11,11 @@
   </head>
 
   <body>
-  <%= render partial: "shared/navbar" %>
+  <% unless content_for?(:exclude_navbar) %>
+      <%= render partial: 'shared/navbar' %>
+    <% end %>
+
     <%= yield %>
+  </body>
   </body>
 </html>

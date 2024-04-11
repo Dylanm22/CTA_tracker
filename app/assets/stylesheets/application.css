@@ -14,7 +14,53 @@
  *= require_self
  */
 
- body{
-  background-color: rgb(123, 183, 255);
+ body, .devise-col, .navbar-col{
+   background-color: #f2f1ec;
+  }
+  .navbar-col{
+   background-color:#f2f1ec;
 
  }
+ 
+ .table-container{
+
+  
+  border-radius: 25px;
+}
+
+table {
+  border-collapse:separate;
+  background-color: rgb(44, 44, 44);
+  
+}
+.list-group-mine .list-group-item {
+  background-color: #ffffff;
+  border-top: 2px solid #fbecec;
+  border-left-color: #fff;
+  border-right-color: #fff;
+}
+.create-star-button {
+  background-color: transparent;
+  border: none;
+  color: #ffc107;
+  font-size: 1.2rem; /* Adjust size as needed */
+  cursor: pointer; /* Show pointer cursor on hover */
+}
+
+.create-star-button:hover {
+  color: #ffc107; /* Change color on hover */
+}
+.star-button {
+  background-color: transparent;
+  border: none;
+  color: #dc3545; /* Button color */
+  font-size: 1.2rem; /* Adjust size as needed */
+}
+
+.star-button:hover {
+  color: #f8d7da; /* Button hover color */
+}
+
+.filled {
+  color: #ffc107; /* Filled star color */
+}

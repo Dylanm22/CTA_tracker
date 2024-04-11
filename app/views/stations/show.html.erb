@@ -40,8 +40,11 @@
     </div>
 
     <div>
-      <%= form.submit %>
+          <%= form.button type: "submit", class: "btn btn-col btn-light create-star-button" do %>
+      <i class="far fa-star"></i> <!-- Empty star icon -->
+    <% end %>
     </div>
+  
   <% end %>
 <% end %>
 
