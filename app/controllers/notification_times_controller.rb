@@ -13,6 +13,7 @@ class NotificationTimesController < ApplicationController
   # GET /notification_times/new
   def new
     @notification_time = NotificationTime.new
+    @notification_time.station_id = 1
   end
 
   # GET /notification_times/1/edit

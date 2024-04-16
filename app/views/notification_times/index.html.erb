@@ -6,7 +6,10 @@
   <% @notification_times.each do |notification_time| %>
     <%= render "notification_times/notification_times_index", notification_time: notification_time  %>
     <p>
-      <%= link_to "Show this notification time", notification_time %>
+      <% if Favorite.find_by(station_id: notification_time.station_id, user_id: notification_time.user_id) %>
+        <%= link_to "Show this notification time", notification_time %>
+      <% end %>
+
     </p>
   <% end %>
 </div>

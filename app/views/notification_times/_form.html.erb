@@ -31,7 +31,7 @@
 
             <div class="mb-3">
               <%= form.label :station_id, "Station", class: "form-label" %>
-              <%= form.collection_select :station_id, Station.all, :id, :name, { prompt: 'Select station' }, class: "form-select" %>
+              <%= form.collection_select :station_id, Station.all, :id, :name, { prompt: 'Select station' }, class: "form-select"  %>
             </div>
 
             <div>

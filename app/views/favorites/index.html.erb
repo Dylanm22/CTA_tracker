@@ -3,9 +3,9 @@
 <h1 class="text-center">Favorites</h1>
 
 <div class="container">
-  <div class="row">
+  <div class="row d-flex justify-content-center align">
     <% @favorites.each do |favorite| %>
-      <div class="col-md-4 mb-4">
+      <div class="col-md-4 mb-4 row d-flex justify-content-center align">
         <%= render "notification_times/notification_time", favorite: favorite %>
       </div>
     <% end %>

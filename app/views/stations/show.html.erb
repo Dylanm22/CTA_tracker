@@ -15,38 +15,39 @@
   <%= link_to "Back to stations", stations_path %>
 </div>
 
-<%= form_with(model: @favorite) do |form| %>
-  <% if @favorite.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(@favorite.errors.count, "error") %> prohibited this favorite from being saved:</h2>
+
+<%#= form_with(model: @favorite) do |form| %>
+  <%# if @favorite.errors.any? %>
+<!--    <div style="color: red">
+      <h2><%#= pluralize(@favorite.errors.count, "error") %> prohibited this favorite from being saved:</h2>
 
       <ul>
-        <% @favorite.errors.full_messages.each do |error| %>
-          <li><%= error %></li>
-        <% end %>
-      </ul>
+        <%# @favorite.errors.full_messages.each do |error| %>-->
+<!--          <li><%#= error %></li>-->
+        <%# end %>
+<!--      </ul>
     </div>
-  <% end %>
-  <% if user_signed_in? %>
-    <div>
-      <% form.label :user_id, style: "display: block" %>
-      <%= form.hidden_field :user_id, value: current_user.id %>
-    </div>
+  <%# end %>-->
+  <%# if user_signed_in? %>
+<!--    <div>-->
+      <%# form.label :user_id, style: "display: block" %>
+      <%#= form.hidden_field :user_id, value: current_user.id %>
+<!--    </div>
 
     <div>
-      <% form.label :station_id, style: "display: block" %>
-      <%= form.hidden_field :station_id, value: @station.id %>
-      <% @station.name %>
-    </div>
+      <%# form.label :station_id, style: "display: block" %>-->
+      <%#= form.hidden_field :station_id, value: @station.id %>
+      <%# @station.name %>
+<!--    </div>
 
-    <div>
-          <%= form.button type: "submit", class: "btn btn-col btn-light create-star-button" do %>
-      <i class="far fa-star"></i> <!-- Empty star icon -->
-    <% end %>
-    </div>
+    <div class= "d-flex justify-content-center">
+          <%#= form.button type: "submit", class: "btn btn-col btn-light create-star-button" do %>-->
+<!--      <i class="far fa-star"></i>  Empty star icon -->
+    <%# end %>
+<!--    </div>
   
-  <% end %>
-<% end %>
+  <%# end %>-->
+<%# end %>
 
 <script>
     // Check if the current page URL matches the target URL
