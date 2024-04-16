@@ -14,7 +14,7 @@
  *= require_self
  */
 
- body, .devise-col, .navbar-col{
+ body, .devise-col, .navbar-col, .card-col{
    background-color: #f2f1ec;
   }
   .navbar-col{
@@ -63,4 +63,14 @@ table {
 
 .filled {
   color: #ffc107; /* Filled star color */
+}
+.btn-outline-success {
+  color: green;
+  border-color: green;
+}
+
+.btn-outline-success:hover {
+  color: white;
+  background-color: green;
+  border-color: green;
 }

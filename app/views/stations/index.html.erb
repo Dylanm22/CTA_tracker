@@ -1,7 +1,7 @@
 <p style="color: green"><%= notice %></p>
 <h1 class="text-center">Stations</h1>
 
-<div class="d-flex justify-content-end pt-2">
+<div class="d-flex justify-content-end">
   <form action="<%= stations_path %>" method="get" class="mb-3">
     <div class="input-group">
       <input type="text" name="search" class="form-control form-control-sm" placeholder="Search for a station...">
@@ -13,11 +13,11 @@
 </div>
 
 <div class="container pt-1">
-  <div class="list-group list-group-mine pt-3 ">
+  <div class="list-group list-group-mine pt-3 text-center">
     <% @stations.each do |station| %>
       <%= link_to station.name, station_path(station.id), class: 'list-group-item list-group-item-action' %>
     <% end %>
   </div>
 </div>
 
-<%=link_to "New station", new_station_path, class: 'btn btn-success mt-3' %>
+<%= link_to "New station", new_station_path, class: 'btn btn-outline-success mt-3', style: 'color: green; border-color: green;' %>

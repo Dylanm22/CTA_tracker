@@ -1,6 +1,6 @@
 <nav class="navbar navbar-col navbar-expand-lg bg-body-primary">
   <div class="container-fluid">
-    <%= link_to 'CTA', stations_path, class: "navbar-brand" %>
+    <%= link_to 'HeyCTA', stations_path, class: "navbar-brand" %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -21,11 +21,11 @@
           <li class="nav-item">
             <%= link_to "Saved Stations", favorites_path, class: "nav-link" %>
           </li>
+         <!-- <li class="nav-item">-->
+            <%#= link_to "new notification time", new_notification_time_path, class: "nav-link" %>
+<!--          </li>-->
           <li class="nav-item">
-            <%= link_to "new notification time", new_notification_time_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "noti times", notification_times_path, class: "nav-link" %>
+            <%= link_to "Notifications", notification_times_path, class: "nav-link" %>
           </li>
         <% else %>
           <li class="nav-item">
