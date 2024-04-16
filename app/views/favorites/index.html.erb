@@ -3,13 +3,13 @@
 <h1 class="text-center">Favorites</h1>
 
 <div class="container">
-  <div class="row d-flex justify-content-center align">
+  <div class="row d-flex justify-content-center align-content-center">
     <% @favorites.each do |favorite| %>
-      <div class="col-md-4 mb-4 row d-flex justify-content-center align">
+      <div class="col-md-4 mb-4 d-flex justify-content-center align-items-center">
         <%= render "notification_times/notification_time", favorite: favorite %>
       </div>
     <% end %>
   </div>
 </div>
 
-<%= link_to "New favorite", new_favorite_path %>
+<% link_to "New favorite", new_favorite_path %>

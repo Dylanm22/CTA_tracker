@@ -16,10 +16,11 @@
 
  body, .devise-col, .navbar-col, .card-col{
    background-color: #f2f1ec;
+   /* background-color: #d5d5d5; */
   }
   .navbar-col{
    background-color:#f2f1ec;
-
+   /* background-color:#a2a2a2; */
  }
  
  .table-container{
