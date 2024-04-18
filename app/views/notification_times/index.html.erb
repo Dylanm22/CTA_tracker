@@ -2,16 +2,23 @@
 
 <h1>Notification times</h1>
 
-<div id="notification_times">
-  <% @notification_times.each do |notification_time| %>
-    <%= render "notification_times/notification_times_index", notification_time: notification_time  %>
-    <p>
-      <% if Favorite.find_by(station_id: notification_time.station_id, user_id: notification_time.user_id) %>
-        <%= link_to "Show this notification time", notification_time %>
-      <% end %>
-
-    </p>
-  <% end %>
+<div class="container">
+  <div class="row justify-content-center">
+    <% @notification_times.each do |notification_time| %>
+      <div class="col-md-4 mb-3">
+        <div class="card">
+          <div class="card-body">
+            <%= render "notification_times/notification_times_index", notification_time: notification_time  %>
+            <p>
+              <% if Favorite.find_by(station_id: notification_time.station_id, user_id: notification_time.user_id) %>
+                <%= link_to "Show this notification time", notification_time %>
+              <% end %>
+            </p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
 
 <%= link_to "New notification time", new_notification_time_path %>

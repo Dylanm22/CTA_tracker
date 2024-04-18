@@ -1,14 +1,13 @@
 <div class="card">
   <div class="card-body">
-    <!--<h5 class="card-title">User: <%#= favorite.user_id %></h5>-->
-    <h5 class="card-title ">Station: <%= favorite.station.name %></h6>
+    <h5 class="card-title ">Station: <%= favorite.station.name %></h5>
     <% if NotificationTime.find_by(user_id: favorite.user_id, station_id: favorite.station_id)%>
       <h6 class="card-subtitle mb-2 text-muted">Notification: <%= NotificationTime.find_by(user_id: favorite.user_id, station_id: favorite.station_id).recurrence %>, <%= NotificationTime.find_by(user_id: favorite.user_id, station_id: favorite.station_id).time.strftime("%I:%M %p") %>, Active</h6>
-    <%= link_to "Create notification", new_notification_time_path(favorite_id: favorite.id), class: "card-link" %>
-    <%#= button_to "Destroy this notification time", @notification_time, method: :delete %>
+      <%= link_to "Edit notification", edit_notification_time_path(NotificationTime.find_by(station_id: favorite.station.id)), class: "card-link" %>
+      <%= link_to "Remove Favorite", favorite, data: {turbo_method: :delete}, class: "card-link"  %>
     <% else%>
-    <%= link_to "Show this favorite", favorite, class: "card-link" %>
-<%= link_to "Create notification", new_notification_time_path(favorite_id: favorite.id), class: "card-link" %>  
+       <%= link_to "Remove Favorite", favorite, data: {turbo_method: :delete}, class: "card-link"  %>
+      <%= link_to "Create notification", new_notification_time_path(favorite_id: favorite.id), class: "card-link" %>
     <%end%>
   </div>
 </div>

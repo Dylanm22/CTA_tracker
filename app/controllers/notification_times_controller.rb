@@ -13,7 +13,6 @@ class NotificationTimesController < ApplicationController
   # GET /notification_times/new
   def new
     @notification_time = NotificationTime.new
-    @notification_time.station_id = 1
   end
 
   # GET /notification_times/1/edit
@@ -26,7 +25,7 @@ class NotificationTimesController < ApplicationController
 
     respond_to do |format|
       if @notification_time.save
-        format.html { redirect_to notification_time_url(@notification_time), notice: "Notification time was successfully created." }
+        format.html { redirect_to favorites_path, notice: "Notification time was successfully created." }
         format.json { render :show, status: :created, location: @notification_time }
       else
         format.html { render :new, status: :unprocessable_entity }

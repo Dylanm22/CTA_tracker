@@ -17,6 +17,7 @@
  body, .devise-col,  .card-col{
    background-color: #131313 ;
    /* background-color: #d5d5d5; */
+  color: rgb(187, 187, 187);
   }
   .navbar-col{
    background-color: #2b2b2b ;
@@ -31,7 +32,7 @@
 
  .tablerow{
   background-color:  #131313;
-  color: rgb(187, 187, 187)
+  
 
 
 
