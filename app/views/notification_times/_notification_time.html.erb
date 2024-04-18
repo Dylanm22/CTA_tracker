@@ -6,8 +6,6 @@
       <h6 class="card-subtitle mb-2 text-muted">Notification: <%= NotificationTime.find_by(user_id: favorite.user_id, station_id: favorite.station_id).recurrence %>, <%= NotificationTime.find_by(user_id: favorite.user_id, station_id: favorite.station_id).time.strftime("%I:%M %p") %>, Active</h6>
     <%= link_to "Create notification", new_notification_time_path(favorite_id: favorite.id), class: "card-link" %>
     <%#= button_to "Destroy this notification time", @notification_time, method: :delete %>
-   
-
     <% else%>
     <%= link_to "Show this favorite", favorite, class: "card-link" %>
 <%= link_to "Create notification", new_notification_time_path(favorite_id: favorite.id), class: "card-link" %>  

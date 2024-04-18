@@ -14,12 +14,12 @@
  *= require_self
  */
 
- body, .devise-col, .navbar-col, .card-col{
-   background-color: #f2f1ec;
+ body, .devise-col,  .card-col{
+   background-color: #131313 ;
    /* background-color: #d5d5d5; */
   }
   .navbar-col{
-   background-color:#f2f1ec;
+   background-color: #2b2b2b ;
    /* background-color:#a2a2a2; */
  }
  
@@ -29,17 +29,28 @@
   border-radius: 25px;
 }
 
+ .tablerow{
+  background-color:  #131313;
+  color: rgb(187, 187, 187)
+
+
+
+}
+
 table {
   border-collapse:separate;
-  background-color: rgb(44, 44, 44);
+  background-color: #545353;
   
 }
 .list-group-mine .list-group-item {
-  background-color: #ffffff;
-  border-top: 2px solid #fbecec;
-  border-left-color: #fff;
-  border-right-color: #fff;
+  background-color: #222222;
+  border-top: 2px solid #474747;
+  border-left-color: #222222;
+  border-right-color: #222222;
+  border-bottom: #7b7b7b;
+  color: rgb(187, 187, 187);
 }
+
 .create-star-button {
   background-color: transparent;
   border: none;
@@ -75,6 +86,3 @@ table {
   background-color: green;
   border-color: green;
 }
-
-
-/*  */
