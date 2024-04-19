@@ -32,12 +32,14 @@
            <!-- <div class="mb-3">-->
               <%#= form.label :station_id, "Station", class: "form-label" %>
            
-           <%= form.hidden_field :station_id, value: favorite_id.station_id%>
+          
 
-           <%#= form.collection_select :station_id, Station.all, :id, :name, { selected: notification_time.station&.id, prompt: "select station"}, { class: "form-select"} %>
-               <%#notification_time.id%>
-          <!--onchange: "this.value = #{Favorite.find_by(id: params[:favorite_id]).station.id};"-->
-            <!--</div>-->
+           <%= form.collection_select :station_id, Station.all, :id, :name, { selected: notification_time.station_id }, { class: "form-select" } %>
+
+
+               <%notification_time.id%>
+          
+            </div>
 
             <div>
               <%= form.submit "Save", class: "btn btn-primary" %>
