@@ -45,7 +45,7 @@ class NotificationTimesController < ApplicationController
   def update
     respond_to do |format|
       if @notification_time.update(notification_time_params)
-        format.html { redirect_to notification_time_url(@notification_time), notice: "Notification time was successfully updated." }
+        format.html { redirect_to favorites_path, notice: "Notification time was successfully updated." }
         format.json { render :show, status: :ok, location: @notification_time }
       else
         format.html { render :edit, status: :unprocessable_entity }
