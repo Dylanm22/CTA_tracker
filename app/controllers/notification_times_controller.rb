@@ -59,7 +59,7 @@ class NotificationTimesController < ApplicationController
     @notification_time.destroy
 
     respond_to do |format|
-      format.html { redirect_to notification_times_url, notice: "Notification time was successfully destroyed." }
+      format.html { redirect_to favorites_path, notice: "Notification time was successfully destroyed." }
       format.json { head :no_content }
     end
   end
