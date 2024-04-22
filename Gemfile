@@ -4,6 +4,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby "3.2.1"
 gem 'httparty'
 
+gem 'sidekiq'
+
+
 gem 'turbo-rails'
 
 gem 'whenever', require: false

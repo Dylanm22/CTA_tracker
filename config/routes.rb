@@ -1,3 +1,4 @@
+require 'sidekiq/web'
 Rails.application.routes.draw do
   get 'cover/show'
   resources :favorites
@@ -8,4 +9,6 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
    root "stations#index"
+
+   mount Sidekiq::Web => '/sidekiq'
 end

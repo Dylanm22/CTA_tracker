@@ -5,9 +5,9 @@ class TaskMailer < ApplicationMailer
   #
   #   en.task_mailer.task_created.subject
   #
-    def notification(user, message)
-      @user = user
-      @message = message
-      mail(to: @user.email, subject: 'Notification')
-    end
+  def notification(user, notification_time)
+    @user = user
+    @notification_time = notification_time
+    mail(to: @user.email, subject: 'Notification')
+  end
   end

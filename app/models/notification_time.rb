@@ -30,7 +30,10 @@ class NotificationTime < ApplicationRecord
 
   def send_notification_email
     user = User.find(user_id)
-    message = 'This is a notification message.'
-    TaskMailer.notification(user, message).deliver_now
+    TaskMailer.notification(user, self).deliver_now
+  end
+
+  def schedule_notification_email
+    NotificationEmailWorker.perform_at(@scheduled_time, @user.id, @scheduled_time)
   end
 end
