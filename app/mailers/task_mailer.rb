@@ -5,9 +5,9 @@ class TaskMailer < ApplicationMailer
   #
   #   en.task_mailer.task_created.subject
   #
-  def task_created
-    @greeting = "Hi"
-
-    mail to: "to@example.org"
+    def notification(user, message)
+      @user = user
+      @message = message
+      mail(to: @user.email, subject: 'Notification')
+    end
   end
-end
