@@ -7,4 +7,5 @@
 <div>
   <%= link_to "Show this notification time", @notification_time %> |
   <%= link_to "Back to notification times", notification_times_path %>
+   <%= button_to "Destroy this notification time", @notification_time, method: :delete %>
 </div>

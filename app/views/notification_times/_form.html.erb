@@ -7,7 +7,6 @@
             <% if notification_time.errors.any? %>
               <div class="alert alert-danger">
                 <h2><%= pluralize(notification_time.errors.count, "error") %> prohibited this notification_time from being saved:</h2>
-
                 <ul>
                   <% notification_time.errors.full_messages.each do |message| %>
                     <li><%= message %></li>
@@ -26,13 +25,14 @@
 
             <div class="mb-3">
               <%= form.select :recurrence, [['Once', 'once'],['Weekdays', 'weekdays'], ['Weekends', 'weekends'], ['Mondays', 'mondays'], ['Tuesdays', 'tuesdays'], ['Wednesdays', 'wednesdays'], ['Thursdays', 'thursdays'], ['Fridays', 'fridays'], ['Saturdays', 'saturdays'], ['Sundays', 'sundays'] ], {}, { prompt: 'Select recurrence' } %>
-              
             </div>
 
-            <div class="mb-3">
-              <%= form.label :station_id, "Station", class: "form-label" %>
-              <%= form.collection_select :station_id, Station.all, :id, :name, { prompt: 'Select station' }, class: "form-select"  %>
-            </div>
+            <% favorite = Favorite.find_by(id: params[:favorite_id]) %>
+            <% if favorite %>
+              <%= form.hidden_field :station_id, value: favorite.station_id %>
+            <% else %>
+              <!-- Handle the case when no favorite is found with the given id -->
+            <% end %>
 
             <div>
               <%= form.submit "Save", class: "btn btn-primary" %>

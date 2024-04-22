@@ -10,4 +10,5 @@
 #
 class Station < ApplicationRecord
 has_many :favorites 
+has_many :notification_times
 end

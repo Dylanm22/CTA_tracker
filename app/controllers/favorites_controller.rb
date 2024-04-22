@@ -4,6 +4,7 @@ class FavoritesController < ApplicationController
   # GET /favorites or /favorites.json
   def index
     @favorites = Favorite.all
+ 
   end
 
   # GET /favorites/1 or /favorites/1.json
@@ -25,7 +26,7 @@ class FavoritesController < ApplicationController
 
     respond_to do |format|
       if @favorite.save
-        format.html { redirect_to favorite_url(@favorite), notice: "Favorite was successfully created." }
+        format.html { redirect_to favorites_path, notice: "Favorite was successfully created." }
         format.json { render :show, status: :created, location: @favorite }
       else
         format.html { render :new, status: :unprocessable_entity }

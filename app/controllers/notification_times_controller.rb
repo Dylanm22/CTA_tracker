@@ -13,7 +13,6 @@ class NotificationTimesController < ApplicationController
   # GET /notification_times/new
   def new
     @notification_time = NotificationTime.new
-    @notification_time.station_id = 1
   end
 
   # GET /notification_times/1/edit
@@ -23,10 +22,17 @@ class NotificationTimesController < ApplicationController
   # POST /notification_times or /notification_times.json
   def create
     @notification_time = NotificationTime.new(notification_time_params)
+  @notification_time.user_id = current_user.id
+  favorite = Favorite.find_by(id: params[:favorite_id])
 
+  if favorite
+    @notification_time.station_id = favorite.station_id
+  else
+    # Handle the case when no favorite is found with the given id
+  end
     respond_to do |format|
       if @notification_time.save
-        format.html { redirect_to notification_time_url(@notification_time), notice: "Notification time was successfully created." }
+        format.html { redirect_to favorites_path, notice: "Notification time was successfully created." }
         format.json { render :show, status: :created, location: @notification_time }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -39,7 +45,7 @@ class NotificationTimesController < ApplicationController
   def update
     respond_to do |format|
       if @notification_time.update(notification_time_params)
-        format.html { redirect_to notification_time_url(@notification_time), notice: "Notification time was successfully updated." }
+        format.html { redirect_to favorites_path, notice: "Notification time was successfully updated." }
         format.json { render :show, status: :ok, location: @notification_time }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -53,7 +59,7 @@ class NotificationTimesController < ApplicationController
     @notification_time.destroy
 
     respond_to do |format|
-      format.html { redirect_to notification_times_url, notice: "Notification time was successfully destroyed." }
+      format.html { redirect_to favorites_path, notice: "Notification time was successfully destroyed." }
       format.json { head :no_content }
     end
   end
