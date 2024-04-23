@@ -33,7 +33,7 @@ class NotificationTime < ApplicationRecord
      TaskMailer.notification(user, self).deliver_now
   end
   
-  # test one working right now 
+  # test one working right now needs to deliver later at the specified time 
   
   # def send_notification_email
   #    user = User.find(user_id)
