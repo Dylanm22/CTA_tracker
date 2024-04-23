@@ -28,7 +28,7 @@ module RailsTemplate
     end
     # postmark settings
     config.action_mailer.delivery_method = :postmark
-    config.action_mailer.postmark_settings = { :api_token => "POSTMARK-SERVER-API-TOKEN-HERE" }
+    config.action_mailer.postmark_settings = { :api_token => ENV["POSTMARK_KEY"] }
 
     config.action_controller.default_protect_from_forgery = false
     config.generators.system_tests = nil
