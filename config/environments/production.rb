@@ -1,6 +1,8 @@
 require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
+  #time zone
+  config.time_zone = 'Central Time (US & Canada)'
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
