@@ -13,26 +13,13 @@ class StationsController < ApplicationController
   end
   # GET /stations/1 or /stations/1.json
   def show
-    @is_show_page = true
     @station = Station.find(params[:id])
     @favorite = Favorite.new
     @stations = Station.all
-    api_key = ENV["CTA_KEY"].strip
-     num = @station.map
-     response = HTTParty.get("http://lapi.transitchicago.com/api/1.0/ttarrivals.aspx?key=#{api_key}&mapid=#{num}&outputType=JSON")
-     stops = JSON.parse(response.body)['ctatt']['eta']
-
-     @arrivals = []
-     stops.each do |stop|
-       @arrivals.push({
-         name: stop['staNm'],
-         run_number: stop['rn'],
-         line: stop['rt'],
-         destination: stop['destNm'],
-         eta: stop['arrT']
-       })
-    end
     
+     
+    arrivals = StationArrivals.new(@station)
+    @arrivals = arrivals.get_arrivals
   end
   # GET /stations/new
   def new

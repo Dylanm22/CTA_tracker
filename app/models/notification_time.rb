@@ -23,4 +23,22 @@
 class NotificationTime < ApplicationRecord
   belongs_to :user
   belongs_to :station
+  
+  after_create :send_notification_email
+
+  private
+
+  def send_notification_email
+    user = User.find(user_id)
+     TaskMailer.notification(user, self).deliver_now
+  end
+  
+  # test one working right now 
+  
+  # def send_notification_email
+  #    user = User.find(user_id)
+  #    TaskMailer.scheduled_notification(user, self).deliver_now
+  # end
+
+
 end

@@ -1,13 +1,24 @@
 class TaskMailer < ApplicationMailer
-
-  # Subject can be set in your I18n file at config/locales/en.yml
-  # with the following lookup:
-  #
-  #   en.task_mailer.task_created.subject
-  #
-  def task_created
-    @greeting = "Hi"
-
-    mail to: "to@example.org"
+  
+  
+  def notification(user, notification_time)
+    @user = user
+    @notification_time = notification_time
+    mail(to: @user.email, subject: 'Notification Sign Up')
   end
-end
+  
+   
+  def scheduled_notification(user, notification_time)
+     @user = user
+     
+     @notification_time = notification_time
+     
+     arrivals = StationArrivals.new(@notification_time.station)
+     @arrivals = arrivals.get_arrivals
+
+     mail(to: @user.email, subject: 'HeyCTA Notification')
+  end
+  
+  
+  end
+   
