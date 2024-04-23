@@ -6,6 +6,7 @@ gem 'httparty'
 
 gem 'sidekiq'
 
+gem "postmark-rails"
 
 gem 'turbo-rails'
 

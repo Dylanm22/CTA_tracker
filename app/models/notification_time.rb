@@ -27,12 +27,18 @@ class NotificationTime < ApplicationRecord
   after_create :send_notification_email
 
   private
-# this is for the first one
+
   def send_notification_email
     user = User.find(user_id)
-    TaskMailer.notification(user, self).deliver_now
+     TaskMailer.notification(user, self).deliver_now
   end
-
-
   
+  # test one working right now 
+  
+  # def send_notification_email
+  #    user = User.find(user_id)
+  #    TaskMailer.scheduled_notification(user, self).deliver_now
+  # end
+
+
 end

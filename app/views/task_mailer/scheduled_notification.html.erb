@@ -1,0 +1,6 @@
+<h1><%= @notification_time.station.name %> notification</h1>
+<p><%= @notification_time.time %></p>
+<% @arrivals.take(4).each do |arrival| %>
+<% eta_time = Time.parse(arrival[:eta]) %>
+<p><%= arrival[:destination] %>, <%= "#{((eta_time - Time.now) / 60).to_i} minutes (#{eta_time.strftime("%I:%M %p")})" %></p>
+ <% end %>
