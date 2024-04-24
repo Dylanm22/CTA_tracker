@@ -1,7 +1,7 @@
 require 'httparty'
 class StationsController < ApplicationController
   before_action :set_station, only: %i[ show edit update destroy ]
-
+  
   # GET /stations or /stations.json
   def index
     @stations = Station.all
@@ -10,6 +10,7 @@ class StationsController < ApplicationController
     else
       Station.all
     end
+   
   end
   # GET /stations/1 or /stations/1.json
   def show

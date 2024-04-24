@@ -1,11 +1,12 @@
 class FavoritesController < ApplicationController
   before_action :set_favorite, only: %i[ show edit update destroy ]
-
+  before_action {authorize (@favorite || Favorite)}
   # GET /favorites or /favorites.json
   def index
-    #  @favorites = Favorite.all
      @favorites = current_user.favorites
-     
+    #  @favorites = current_user.favorites
+    # @favorites = policy_scope(Favorite)
+    authorize(policy_scope(@favorites))
   end
 
   # GET /favorites/1 or /favorites/1.json

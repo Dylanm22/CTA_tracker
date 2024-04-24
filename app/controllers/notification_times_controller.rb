@@ -1,6 +1,6 @@
 class NotificationTimesController < ApplicationController
   before_action :set_notification_time, only: %i[ show edit update destroy ]
-
+  before_action {authorize (@notification_time || NotificationTime)}
   # GET /notification_times or /notification_times.json
   def index
     @notification_times = NotificationTime.all
