@@ -7,3 +7,5 @@
 
 ## Pain Points
 Catching the CTA can be troublesome and annoying at times when on a tight schedule.
+
+## ERD
