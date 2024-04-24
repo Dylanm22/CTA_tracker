@@ -15,7 +15,7 @@
               </div>
             <% end %>
 
-            <!-- Hidden user ID field -->
+     
             <%= form.hidden_field :user_id, value: current_user.id %>
 
             <div class="mb-3">
@@ -31,7 +31,7 @@
             <% if favorite %>
               <%= form.hidden_field :station_id, value: favorite.station_id %>
             <% else %>
-              <!-- Handle the case when no favorite is found with the given id -->
+             
             <% end %>
 
             <div>
