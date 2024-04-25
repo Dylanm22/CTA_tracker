@@ -1,6 +1,33 @@
 namespace :slurp do
   task :stations => :environment do
-    
-    # Station.create(name: 'Irving Park', map: 41460)
+   Station.destroy_all 
+   Station.create(name: 'Kimball', map: 41290)
+   Station.create(name: 'Kedzie', map: 41320)
+   Station.create(name: 'Francisco', map: 41340)
+   Station.create(name: 'Rockwell', map: 41380)
+   Station.create(name: 'Western', map: 41420)
+   Station.create(name: 'Damen', map: 41460)
+   Station.create(name: 'Montrose', map: 41480)
+   Station.create(name: 'Irving Park', map: 41500)
+   Station.create(name: 'Addison', map: 41510)
+   Station.create(name: 'Paulina', map: 41520)
+   Station.create(name: 'Southport', map: 41540)
+   Station.create(name: 'Belmont', map: 41550)
+   Station.create(name: 'Wellington', map: 41570)
+   Station.create(name: 'Diversey', map: 41590)
+   Station.create(name: 'Fullerton', map: 41600)
+   Station.create(name: 'Armitage', map: 41620)
+   Station.create(name: 'Sedgwick', map: 41640)
+   Station.create(name: 'Chicago', map: 41660)
+   Station.create(name: 'Merchandise Mart', map: 41680)
+   Station.create(name: 'Clark/Lake', map: 41700)
+   Station.create(name: 'Washington/Wells', map: 41720)
+   Station.create(name: 'Quincy', map: 41730)
+   Station.create(name: 'LaSalle/Van Buren', map: 41740)
+   Station.create(name: 'Harold Washington Library-State/Van Buren', map: 41750)
+   Station.create(name: 'Adams/Wabash', map: 41780)
+   Station.create(name: 'Madison/Wabash', map: 41790)
+   Station.create(name: 'Randolph/Wabash', map: 41800)
+   Station.create(name: 'State/Lake', map: 41840)
   end
 end
