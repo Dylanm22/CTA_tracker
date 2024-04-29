@@ -22,13 +22,12 @@ class NotificationTimesController < ApplicationController
   # POST /notification_times or /notification_times.json
   def create
     @notification_time = NotificationTime.new(notification_time_params)
-  @notification_time.user_id = current_user.id
-  favorite = Favorite.find_by(id: params[:favorite_id])
+    @notification_time.user_id = current_user.id
+    favorite = Favorite.find_by(id: params[:favorite_id])
 
   if favorite
     @notification_time.station_id = favorite.station_id
   else
-    # Handle the case when no favorite is found with the given id
   end
     respond_to do |format|
       if @notification_time.save
@@ -57,7 +56,6 @@ class NotificationTimesController < ApplicationController
   # DELETE /notification_times/1 or /notification_times/1.json
   def destroy
     @notification_time.destroy
-
     respond_to do |format|
       format.html { redirect_to favorites_path, notice: "Notification time was successfully destroyed." }
       format.json { head :no_content }

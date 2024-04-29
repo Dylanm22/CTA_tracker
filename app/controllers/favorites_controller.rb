@@ -4,9 +4,7 @@ class FavoritesController < ApplicationController
   # GET /favorites or /favorites.json
   def index
      @favorites = current_user.favorites
-    #  @favorites = current_user.favorites
-    # @favorites = policy_scope(Favorite)
-    authorize(policy_scope(@favorites))
+     authorize(policy_scope(@favorites))
   end
 
   # GET /favorites/1 or /favorites/1.json
