@@ -14,14 +14,14 @@
   <% end %>
   <% if user_signed_in? %>
     <div>
-      <%= form.label :user_id, style: "display: block;" %>
+      <% form.label :user_id, style: "display: block;" %>
       <%= form.hidden_field :user_id, value: current_user.id %>
     </div>
 
     <div>
-      <%= form.label :station_id, style: "display: block;" %>
+      <% form.label :station_id, style: "display: block;" %>
       <%= form.hidden_field :station_id, value: @station.id %>
-      <%= @station.name %>
+      <% @station.name %>
     </div>
 
     <div class="d-flex justify-content-center">
