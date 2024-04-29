@@ -25,7 +25,7 @@ class NotificationTime < ApplicationRecord
   belongs_to :station
   
   after_create :send_notification_email
-  # after_create :send_info_email
+  after_create :send_info_email
   private
 
   def send_notification_email
@@ -33,13 +33,18 @@ class NotificationTime < ApplicationRecord
      TaskMailer.notification(user, self).deliver_now
   end
   
-  # test one working right now needs to deliver later at the specified time 
-  # for the scheduled_noti i think it should still be in here but it should take the time tht was just made and the use that to do a deliver_later at that time
-
-  # def send_info_email
-  #    user = User.find(user_id)
-  #    TaskMailer.scheduled_notification(user, self).deliver_now
-  # end
+  def wait_time_minutes
+    current_time_minutes = Time.now.hour * 60 + Time.now.min
+    notification_time_minutes = time.hour * 60 + time.min
+    wait_time_minutes = notification_time_minutes - current_time_minutes
+    wait_time_minutes += 1440 if wait_time_minutes.negative?
+    wait_time_minutes
+  end
+  
+  def send_info_email
+    user = User.find(user_id) 
+    TaskMailer.scheduled_notification(user, self).deliver_later(wait: wait_time_minutes.minutes)
+  end
 
 
 end
