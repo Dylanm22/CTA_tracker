@@ -3,9 +3,6 @@
     <%= link_to stations_path, class: "navbar-brand" do %>
       <%= image_tag "heyctalogo.png", alt: "HeyCTA Logo", style: "width: 50px; height: auto;" %>
     <% end %>
-    <!--<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" data-auto-close="true" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>-->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -22,9 +19,6 @@
             <li class="nav-item">
               <%= link_to "Saved Stations", favorites_path, class: "nav-link", style: "color: rgb(187, 187, 187)" %>
             </li>
-            <!--<li class="nav-item">-->
-            <%#= link_to "Notifications", notification_times_path, class: "nav-link", style: "color: rgb(187, 187, 187)" %>
-            <!--          </li>-->
             <li class="nav-item">
               <%= link_to "Stations", stations_path, class: "nav-link", style: "color: rgb(187, 187, 187)" %>
             </li>
@@ -40,10 +34,7 @@
             </li>
           <% end %>
         </ul>
-
       </div>
-
     </div>
   </div>
-
 </nav>
