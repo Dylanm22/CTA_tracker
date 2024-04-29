@@ -14,9 +14,11 @@ class FavoritePolicy < ApplicationPolicy
   def index?
     true
   end
+  
   def create?
     true
   end
+  
   def destroy?
     favorite.user.id == user.id
   end

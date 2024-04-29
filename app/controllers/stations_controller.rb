@@ -1,4 +1,3 @@
-require 'httparty'
 class StationsController < ApplicationController
   before_action :set_station, only: %i[ show edit update destroy ]
   
@@ -6,7 +5,7 @@ class StationsController < ApplicationController
   def index
     @stations = Station.all
     @stations = if params[:search]
-      Station.where('name LIKE ?', "%#{params[:search]}%")
+     Station.where('name LIKE ?', "%#{params[:search]}%")
     else
       Station.all
     end
@@ -17,8 +16,6 @@ class StationsController < ApplicationController
     @station = Station.find(params[:id])
     @favorite = Favorite.new
     @stations = Station.all
-    
-     
     arrivals = StationArrivals.new(@station)
     @arrivals = arrivals.get_arrivals
   end

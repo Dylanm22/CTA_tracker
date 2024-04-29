@@ -45,6 +45,4 @@ class NotificationTime < ApplicationRecord
     user = User.find(user_id) 
     TaskMailer.scheduled_notification(user, self).deliver_later(wait: wait_time_minutes.minutes)
   end
-
-
 end
