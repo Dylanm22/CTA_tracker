@@ -15,7 +15,6 @@
               </div>
             <% end %>
 
-     
             <%= form.hidden_field :user_id, value: current_user.id %>
 
             <div class="mb-3">
@@ -24,16 +23,15 @@
             </div>
 
             <div class="mb-3">
-              <%= form.select :recurrence, [['Once', 'once'],['Weekdays', 'weekdays'], ['Weekends', 'weekends'], ['Mondays', 'mondays'], ['Tuesdays', 'tuesdays'], ['Wednesdays', 'wednesdays'], ['Thursdays', 'thursdays'], ['Fridays', 'fridays'], ['Saturdays', 'saturdays'], ['Sundays', 'sundays'] ], {}, { prompt: 'Select recurrence' } %>
+              <%= form.select :recurrence, [['Once', 'once']], {}, { prompt: 'Select recurrence' } %>
             </div>
 
             <% favorite = Favorite.find_by(id: params[:favorite_id]) %>
             <% if favorite %>
               <%= form.hidden_field :station_id, value: favorite.station_id %>
             <% else %>
-             
             <% end %>
-
+            
             <div>
               <%= form.submit "Save", class: "btn btn-primary" %>
             </div>

@@ -1,4 +1,3 @@
-require 'httparty'
 class StationsController < ApplicationController
   before_action :set_station, only: %i[ show edit update destroy ]
   
