@@ -9,6 +9,6 @@
 #  updated_at :datetime         not null
 #
 class Station < ApplicationRecord
-has_many :favorites 
-has_many :notification_times
+  has_many :favorites
+  has_many :notification_times
 end
